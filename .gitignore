@@ -1,1 +1,12 @@
+# Node
 node_modules/
+.env
+dist/
+
+# React / Vite
+npm-debug.log*
+.vite/
+
+# IDE
+.vscode/
+.idea/
