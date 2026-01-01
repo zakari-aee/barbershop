@@ -44,7 +44,10 @@ const Navbar = () => {
       <div className="container mx-auto px-6 md:px-12 flex items-center justify-between">
         
         {/* 1. Logo OUSSAMA BARBERSHOP */}
-        <a href="#" className="flex flex-col group">
+        <a href="#" className="flex flex-col group" onClick={(e) => {
+          e.preventDefault();
+          window.scrollTo({ top: 0, behavior: 'smooth' });
+        }}>
           <span className={`text-xl md:text-2xl font-black uppercase italic tracking-tighter leading-none transition-colors duration-300 ${
             isScrolled ? 'text-black' : 'text-white'
           }`}>
@@ -66,9 +69,15 @@ const Navbar = () => {
               onClick={(e) => {
                 if (link.href.startsWith('#')) {
                   e.preventDefault();
-                  const element = document.querySelector(link.href);
-                  if (element) {
-                    element.scrollIntoView({ behavior: 'smooth' });
+                  
+                  // Special handling for "#" (Accueil) - scroll to top
+                  if (link.href === '#') {
+                    window.scrollTo({ top: 0, behavior: 'smooth' });
+                  } else {
+                    const element = document.querySelector(link.href);
+                    if (element) {
+                      element.scrollIntoView({ behavior: 'smooth' });
+                    }
                   }
                 }
               }}
@@ -111,9 +120,15 @@ const Navbar = () => {
               onClick={(e) => {
                 if (link.href.startsWith('#')) {
                   e.preventDefault();
-                  const element = document.querySelector(link.href);
-                  if (element) {
-                    element.scrollIntoView({ behavior: 'smooth' });
+                  
+                  // Special handling for "#" (Accueil) - scroll to top
+                  if (link.href === '#') {
+                    window.scrollTo({ top: 0, behavior: 'smooth' });
+                  } else {
+                    const element = document.querySelector(link.href);
+                    if (element) {
+                      element.scrollIntoView({ behavior: 'smooth' });
+                    }
                   }
                 }
                 setIsMobileMenuOpen(false);
